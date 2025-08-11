@@ -1,0 +1,25 @@
+@model List<programacion1_tarea3.Models.Producto>
+
+@{
+    ViewData["Title"] = "Seleccionar Productos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Seleccionar" method="post" class="border p-4 rounded shadow-sm bg-light">
+    <div class="mb-3">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="form-check">
+                <input asp-for="@Model[i].Seleccionado" class="form-check-input" />
+                <label class="form-check-label">
+                    @Model[i].Nombre - S/ @Model[i].Precio
+                </label>
+                <input type="hidden" asp-for="@Model[i].Nombre" />
+                <input type="hidden" asp-for="@Model[i].Precio" />
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirmar selección</button>
+</form>
