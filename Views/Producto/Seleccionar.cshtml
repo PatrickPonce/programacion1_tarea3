@@ -6,20 +6,30 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<form asp-action="Seleccionar" method="post" class="border p-4 rounded shadow-sm bg-light">
-    <div class="mb-3">
+<form asp-action="Seleccionar" method="post">
+    <div class="row">
         @for (int i = 0; i < Model.Count; i++)
         {
-            <div class="form-check">
-                <input asp-for="@Model[i].Seleccionado" class="form-check-input" />
-                <label class="form-check-label">
-                    @Model[i].Nombre - S/ @Model[i].Precio
-                </label>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="@Model[i].ImagenUrl" class="card-img-top" alt="@Model[i].Nombre" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@Model[i].Nombre</h5>
+                        <p class="card-text text-muted">S/ @Model[i].Precio</p>
+                        <div class="form-check">
+                            <input asp-for="@Model[i].Seleccionado" class="form-check-input" />
+                            <label class="form-check-label">Seleccionar</label>
+                        </div>
+                    </div>
+                </div>
                 <input type="hidden" asp-for="@Model[i].Nombre" />
                 <input type="hidden" asp-for="@Model[i].Precio" />
+                <input type="hidden" asp-for="@Model[i].ImagenUrl" />
             </div>
         }
     </div>
 
-    <button type="submit" class="btn btn-primary">Confirmar selección</button>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Confirmar selección</button>
+    </div>
 </form>
