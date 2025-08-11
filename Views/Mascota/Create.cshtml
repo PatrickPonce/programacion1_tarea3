@@ -1,0 +1,26 @@
+@model programacion1_tarea3.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registrar Mascota";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post" class="border p-4 rounded shadow-sm bg-light">
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre de la mascota</label>
+        <input asp-for="Nombre" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Tipo" class="form-label">Tipo de mascota</label>
+        <input asp-for="Tipo" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Edad" class="form-label">Edad</label>
+        <input asp-for="Edad" type="number" min="0" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
