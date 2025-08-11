@@ -1,0 +1,15 @@
+@model programacion1_tarea3.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registro Exitoso";
+}
+
+<div class="alert alert-success mt-4">
+    <h4 class="alert-heading">¡Mascota registrada con éxito!</h4>
+    <p>Nombre: <strong>@Model.Nombre</strong></p>
+    <p>Tipo: <strong>@Model.Tipo</strong></p>
+    <p>Edad: <strong>@Model.Edad</strong> años</p>
+</div>
+
+<a asp-controller="Mascota" asp-action="Create" class="btn btn-secondary">Registrar otra mascota</a>
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Volver al inicio</a>
